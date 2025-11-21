@@ -79,7 +79,14 @@ See package.json for full dependency list and versions.
 ## Reporting issues
 Open an issue: https://github.com/yogesh1078/DevCollabAI-Frontend/issues
 
-## Author
-yogesh1078
+##  Author
 
+**yogesh1078**
+- GitHub: [@yogesh1078](https://github.com/yogesh1078)
+
+##  Acknowledgments
+
+- Google Generative AI for AI capabilities
+- Cloudinary for file storage
+- Socket.IO for real-time communication
 ```
