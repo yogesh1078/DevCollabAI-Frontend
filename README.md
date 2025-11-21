@@ -1,97 +1,85 @@
-# DevCollabAI - Frontend
+# DevCollabAI-Frontend
 
-DevCollabAI-Frontend is the web frontend for DevCollabAI — a collaborative development assistant that helps teams prototype, review, and iterate on code together. This repository contains the UI application which communicates with the DevCollabAI backend APIs to provide chat/code collaboration, project dashboards, and other interactive developer tools.
+A lightweight Vite + React frontend for DevCollabAI — a small, fast UI to interact with the DevCollabAI backend and services.
 
-Note: This README provides general setup and contribution guidance. Adapt environment variables, scripts, and commands if your project uses a specific framework (Create React App, Vite, Next.js, etc.).
+This repository contains the web client (src/) and static assets (public/) for the project.
 
 ## Features
-- Real-time collaboration UI for developer workflows
-- Chat and assistant integration (connects to backend AI services)
-- Project and file browsing
-- Authentication flow (login/signup) hooks
-- Responsive layout and developer-friendly UI components
+- Fast development with Vite
+- React (v19) based UI
+- Tailwind CSS integration
+- Support for socket-based realtime updates (socket.io-client)
+- Markdown rendering and syntax highlighting for content
 
-## Tech stack
-- JavaScript / TypeScript (depending on repo)
-- React (likely), plus common libs: react-router, axios / fetch, state management
-- Build tooling: npm / yarn, bundler (Vite / CRA / Next.js)
-- Styling: CSS / SASS / Tailwind / styled-components (adjust to repo)
+## Tech stack (high level)
+- React 19, React DOM
+- Vite (dev server + build)
+- Tailwind CSS (with @tailwindcss/vite)
+- axios for HTTP requests
+- socket.io-client for realtime/WS
+- markdown-to-jsx, highlight.js
+- react-router-dom
+
+See package.json for full dependency list and versions.
 
 ## Prerequisites
-- Node.js (>= 16) and npm or yarn
-- Access to the DevCollabAI backend (API base URL and API keys if needed)
-- Git
+- Node.js (LTS) — Node 16+ recommended
+- npm (or yarn)
 
-## Quick start (local development)
+## Quick start (development)
 1. Clone the repo
    git clone https://github.com/yogesh1078/DevCollabAI-Frontend.git
    cd DevCollabAI-Frontend
 
 2. Install dependencies
    npm install
-   # or
-   yarn install
 
 3. Create environment variables
-   Create a .env file in the project root (or copy .env.example if present) and add required variables. Typical variables:
-   REACT_APP_API_URL=https://api.devcollabai.example.com
-   REACT_APP_AUTH_PROVIDER_URL=https://auth.devcollabai.example.com
-   REACT_APP_MAPBOX_KEY=your_mapbox_key_if_used
-   # Add any other keys used by your project
+   - There is a repository .env file placeholder. For Vite, client-visible variables must be prefixed with VITE_.
+   - Example .env:
+     VITE_API_URL=https://api.devcollabai.example
 
-4. Run the development server
-   npm run start
-   # or
-   npm run dev
-   # or for Next.js
+4. Start dev server
    npm run dev
 
-5. Open the app
-   Visit http://localhost:3000 or the port printed by your dev server.
+5. Build for production
+   npm run build
 
-## Available scripts
-Common scripts you might find in package.json (adjust if different):
-- npm run start / npm run dev — start development server
-- npm run build — create production build
-- npm run preview — preview production build locally
-- npm run lint — run linter
-- npm run test — run tests
+6. Preview production build
+   npm run preview
 
-Check package.json for exact script names used in this project.
+7. Linting
+   npm run lint
 
-## Environment variables
-Keep secrets out of the repository. Use a .env file or your CI/CD provider's secret store. Example .env:
-REACT_APP_API_URL=https://api.devcollabai.example.com
-REACT_APP_NODE_ENV=development
+## Available scripts (from package.json)
+- npm run dev — start Vite dev server
+- npm run build — build production assets
+- npm run preview — preview the production build
+- npm run lint — run eslint
 
-For production deployments, set these values in your hosting environment (Vercel, Netlify, Cloud run, etc.).
+## Project layout (top-level)
+- src/ — application source code (React)
+- public/ — static assets
+- index.html — Vite entry HTML
+- package.json, package-lock.json
+- vite.config.js
+- eslint.config.js
+- .env (example/placeholder)
+- .gitignore
 
-## Deployment
-Build the app and deploy the output to your static host or server:
-1. npm run build
-2. Serve the contents of the build/ or dist/ directory with your static host or integrate with your cloud provider.
-
-If this is a server-side rendered (SSR) app (Next.js), follow framework-specific deployment guides.
+## Environment / Notes
+- If the frontend talks to an API, configure the API base URL and any keys in .env using VITE_ prefixes so they are available to the client.
+- Check vite.config.js and any code in src/ for expected variable names (VITE_*) before running.
 
 ## Contributing
-Contributions are welcome!
-- Fork the repository
-- Create a feature branch: git checkout -b feature/name
-- Implement changes and add tests where applicable
-- Run linting and tests locally
-- Open a pull request describing your change
+- Open issues for bugs or feature requests.
+- Fork the repo, create a feature branch, implement your changes, and open a pull request.
+- Keep PRs focused and include a clear description and any testing steps.
 
-Please follow the project's code style and commit message guidelines if present.
+## Reporting issues
+Open an issue: https://github.com/yogesh1078/DevCollabAI-Frontend/issues
 
-## Troubleshooting
-- If dependencies fail to install, try cleaning node_modules and reinstalling:
-  rm -rf node_modules package-lock.json
-  npm install
-- If the app cannot reach the backend, verify REACT_APP_API_URL and CORS configuration on the backend.
+## Author
+yogesh1078
 
-## Maintainers / Contact
-Repository owner: yogesh1078
-For questions, open an issue on GitHub or contact the maintainers listed in the repository.
-
----
-This README is a template. Please update the sections (tech stack, scripts, environment variables, and features) to precisely match this repository's code and setup.
+```
